@@ -1,7 +1,27 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
+});
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+    Route::post('/login', [AuthController::class, 'login']);
+    
+    Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+    Route::post('/register', [AuthController::class, 'register']);
+});
+
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    
+    Route::get('/dashboard', [\App\Http\Controllers\ActivityController::class, 'index'])->name('dashboard');
+    Route::post('/activities', [\App\Http\Controllers\ActivityController::class, 'store'])->name('activities.store');
+    Route::patch('/activities/{activity}', [\App\Http\Controllers\ActivityController::class, 'update'])->name('activities.update');
+    
+    Route::get('/daily-handover', [\App\Http\Controllers\ActivityController::class, 'dailyHandover'])->name('daily_handover');
+    Route::get('/reporting', [\App\Http\Controllers\ActivityController::class, 'reporting'])->name('reporting');
 });
