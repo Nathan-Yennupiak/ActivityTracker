@@ -74,6 +74,20 @@ Follow these steps to set up the project locally:
 4. **Daily Handover**: At the end of the day, visit the Handover section to see a summary of the day's work.
 5. **Reporting**: Use the Reporting tab to filter activities by specific dates for performance reviews or audits.
 
+## Screenshots
+
+| Login | Register |
+|:---:|:---:|
+| ![Login Page](public/images/login.png) | ![Register Page](public/images/register.png) |
+
+| Dashboard | Daily Handover |
+|:---:|:---:|
+| ![Dashboard](public/images/dashboard.png) | ![Daily Handover](public/images/daily_handover.png) |
+
+| Reporting & History |
+|:---:|
+| ![Reporting & History](public/images/reporting.png) |
+
 ## Contributing
 
 Contributions, issues, and feature requests are welcome! 
